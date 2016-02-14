@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <title>Добавить проект</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link href="css/jquery.lightbox-0.5.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.0.custom.css" />
+
+	<link rel="stylesheet" type="text/css" href="css/chosen.css" />
+	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600&subset=latin,cyrillic' rel='stylesheet' type='text/css'> -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    
+
+
+   
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script src="js/jquery-ui-1.10.0.custom.js"></script>
+	<script src="js/jquery.placeholder.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/chosen.jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.lightbox-0.5.js"></script>
+	
+	<!--[if lt IE 9]>
+		<script type="text/javascript" src="js/excanvas.compiled.js"></script>
+		<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>		
+	<![endif]-->
+	
+		
+	<script type="text/javascript" src="js/underscore-min.js"></script>
+
+	<script src="http://api-maps.yandex.ru/2.0/?load=package.full&amp;lang=ru-RU" type="text/javascript"></script>
+
+	<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+	<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+	<!--<script src="js/vendor/jquery.ui.widget.js"></script>-->
+	<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+	<script src="http://blueimp.github.io/JavaScript-Load-Image/js/load-image.min.js"></script>
+	<!-- The Canvas to Blob plugin is included for image resizing functionality -->
+	<script src="http://blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
+	<!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
+	<!--<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>-->
+	<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+	<script src="js/jquery.iframe-transport.js"></script>
+	<!-- The basic File Upload plugin -->
+	<script src="js/jquery.fileupload.js"></script>
+	<!-- The File Upload processing plugin -->
+	<script src="js/jquery.fileupload-process.js"></script>
+	<!-- The File Upload image preview & resize plugin -->
+	<script src="js/jquery.fileupload-image.js"></script>
+	<!-- The File Upload audio preview plugin -->
+	<script src="js/jquery.fileupload-audio.js"></script>
+	<!-- The File Upload video preview plugin -->
+	<script src="js/jquery.fileupload-video.js"></script>
+	<!-- The File Upload validation plugin -->
+	<script src="js/jquery.fileupload-validate.js"></script>
+
+
+	<script>
+		$(document).ready(function(){
+			   $( "#accordion" ).accordion({
+			      heightStyle: "content"
+			    });
+			   $('.ui-accordion-content').each(function(){
+			   		$(this).show();
+			   });
+			   $('.ui-accordion-header').addClass('active');
+		});
+	</script>
+	<script type="text/template" id="from_page_theme_tpl">
+		<% _.each(items, function(item, idx){ %>
+			<option> <%= item.title %> </option>
+		<% }) %>
+	</script>
+
+	<script type="text/template" id="from_page_theme_step2_tpl">
+		<% _.each(items, function(item, idx){ %>
+			<option> <%= item.title %> </option>
+		<% }) %>
+	</script>
+
+	<!-- аяксы для адресса -->
+	<script type="text/template" id="selectStreet">
+		<% _.each(items, function(item, idx){ %>
+			<option> <%= item.title %> </option>
+		<% }) %>
+	</script>
+
+	<script type="text/template" id="selectLocality">
+		<% _.each(items, function(item, idx){ %>
+			<option> <%= item.title %> </option>
+		<% }) %>
+	</script>
+
+	<script type="text/template" id="selectHouse">
+		<% _.each(items, function(item, idx){ %>
+			<option> <%= item.title %> </option>
+		<% }) %>
+	</script>
+
+	<script type="text/template" id="selectMicrodistrict">
+		<% _.each(items, function(item, idx){ %>
+			<option> <%= item.title %> </option>
+		<% }) %>
+	</script>
+
+	<script type="text/javascript" src="js/main.js"></script>
+	
+
+</head>
+<body>
+	<!-- start mainarea -->
+	<div id="mainarea">
+		<!-- start header -->
+		<div id="header">
+			<div class="wrap">
+				<ul class="personal_account">
+					<li>
+						<a href="#">Личный кабинет</a>
+					</li>
+					<li>
+						<span class="personal_account_decor"></span>
+						<a href="#">Выход</a>
+					</li>
+				</ul>
+				<div class="clear"></div>
+				<a href="#" class="logo">
+					<h2 class="title_logo">Открытый регион 71</h2>
+					<h3 class="title_logo small">портал управления тульской областью</h3>
+				</a>	
+				<ul class="menu">
+					<li class="active">
+						<a href="#">О проекте</a>						
+					</li>
+					<li>
+						<a href="#">Решение проблем </a>
+					</li>
+					<li>						
+						<a href="#"><span class="menu_item_ico"></span>прими участие </a>
+					</li>
+					<li>						
+						<a href="#"><span class="menu_item_ico"></span>сервисы</a>
+					</li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+			<div class="shadow_slider"></div>
+		</div>
+		<!-- end header -->
+
+		<!-- start middle -->
+		<div id="middle" class="slider_none">
+			<div class="fixed_scroll_fix">	
+				<div class="fone_blue">
+					<div class="line">
+						<div class="wrap">
+							<ul class="menu_list tabsControl clearfix">
+								<li class="active">
+									<a href="">Решение проблем</a>
+									<span class="arrow"></span>
+								</li>
+								<li>
+									<a href="">дороги тульской области</a>
+									<span class="arrow"></span>
+								</li>
+								<li>
+									<a href="">открытое жкх</a>
+									<span class="arrow"></span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="small_menu_wrap">
+				<div class="wrap">
+					<ul class="small_menu">
+						<li class="active">
+							<a href="#" class="small_menu_link">Сообщить о проблеме</a>
+						</li>
+						<li>
+							<a href="#" class="small_menu_link">Консультации</a>
+						</li>
+						<li>
+							<a href="#" class="small_menu_link">Все проблемы</a>
+						</li>
+						<li>
+							<a href="#" class="small_menu_link">Проблемы на карте</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="domain_wrap bottom">
+				<div class="domain">
+					<div class="wrap">
+						<h3 class="add_project_title"><a href="#">Добавить проект Народного бюджета</a></h3>
+
+						<div id="accordion" class="add_project">
+						  <h3><label for="">1</label><span>Основные данные проекта</span> <span class="accordion_arrow"></span></h3>
+						  <div>
+						  	<table class="basic_data">
+						  		<tr>
+						  			<td><label for="" class="basic_top">Название</label>	
+							  			<div class="selectStreet_wrap">					
+											<select size="1" class="my_select_box form_page_select selectDistrict" data-placeholder="Выберите название">
+												<option selected>Выберите название</option>
+												<option>Каменский район </option>
+												<option>Кимовский район </option>
+												<option>Киреевский район </option>
+												<option>Куркинский район  </option>
+												<option>Алексинский район</option>
+											</select>
+										</div>
+									</td>
+						  			<td rowspan="4"><label for="" class="basic_top left">Описание  проблемы, на решение которой направлена программа</label><textarea></textarea></td>
+						  		</tr>
+						  		<tr>
+						  			<td><label for="">Количество прямых благополучателей от реализации проекта</label><input type="text" placeholder=""></td>
+						  			
+						  		</tr>
+						  		<tr>
+						  			<td><label for="">Количество косвенных благополучателей</label><input type="text" placeholder=""></td>
+						  			
+						  		</tr>
+						  		<tr>
+						  			<td><label for="">Количество собранных подписей, отраженных в протоколе</label><input type="text" placeholder=""></td>
+						  			
+						  		</tr>
+						  	</table>
+						  </div>
+						  <h3 class="add_proj_title"><label for="">2</label><span >АДРЕС</span><span class="accordion_arrow"></span></h3>
+						  <div class="adress">
+						  	<table>
+						  		<tr>
+						  			<td><label for="" class="basic_top">Район</label>	
+							  			<div class="selectStreet_wrap">					
+											<select size="1" class="my_select_box form_page_select selectDistrict" data-placeholder="Выберите район">
+												<option selected>Выберите район </option>
+												<option>Каменский район </option>
+												<option>Кимовский район </option>
+												<option>Киреевский район </option>
+												<option>Куркинский район  </option>
+												<option>Алексинский район</option>
+											</select>
+										</div>
+									</td>
+						  			<td><label for="" class="basic_top">Улица</label>
+										<div class="selectStreet_wrap">
+											<select size="1" class="my_select_box form_page_select selectStreet" data-placeholder="Выберите улицу">
+												<option selected>Выберите улицу </option>
+											
+											</select>
+										</div>
+						  			</td>
+						  			<td><label for="" class="basic_top">Населенный пункт</label>
+										<div class="selectLocality_wrap">
+											<select size="1" class="my_select_box form_page_select selectLocality" data-placeholder="Выберите населенный пункт">
+												<option selected>Выберите населенный пункт </option>
+											</select>
+										</div>
+						  			</td>
+						  			<td><label for="" class="basic_top">Дом</label>
+										<div class="selectLocality_wrap">
+											<select size="1" class="my_select_box form_page_select selectHouse" data-placeholder="Выберете номер дома">
+												<option selected>Выберете номер дома </option>
+												
+											</select>
+										</div>
+						  			</td>
+						  		</tr>
+						  	</table>
+				  			<div class="left">
+								<input type="checkbox" id="checkbox-id1" class="remember_input" />
+								<label for="checkbox-id1" class="remember_text"></label><span>Указать на карте</span>
+							</div>
+							<div id="map" class="from_page"></div>
+						  </div>
+						  <h3 class="add_proj_title"><label for="">3</label><span>Инициативная группа</span><span class="accordion_arrow"></span></h3>
+						  <div class="initiative_group_wrap">
+						  	<table class="initiative_group">
+						  		<tr>
+						  			<td><label for="" class="basic_top">Название инициативной группы</label><input type="text" placeholder=""></td>
+						  			<td><label for="" class="basic_top">Организационная форма инициативной группы</label><input type="text" placeholder=""></td>
+						  		</tr>
+						  	</table>
+						  	<div class="left">
+								<input type="checkbox" id="checkbox-id1" class="remember_input" />
+								<label for="checkbox-id1" class="remember_text"></label><span>Присутствует казначей проекта, указанный в протоколе собрания</span>
+							</div>
+						  </div>
+						  <h3 class="add_proj_title"><label for="">4</label><span>Руководитель инциативной группы</span> <span class="accordion_arrow"></span></h3>
+						  <div>
+						  	<table class="personal_data validateForm">
+						  		<tr>
+						  			<td><label for="" class="basic_top">Фамилия</label><input type="text" placeholder="Иванов"></td>
+						  			<td><label for="" class="basic_top">E-mail</label><input type="text" class="input_mail" placeholder="ivanovivan@mail.ru"></td>
+						  		</tr>
+						  		<tr>
+						  			<td><label for="">Имя</label><input type="text" placeholder="Иван"></td>
+						  			<td><label for="">Телефон</label><input type="text" class="inpPhone" placeholder="+79056432235"></td>
+						  		</tr>
+						  		<tr>
+						  			<td><label for="">Отчество	</label><input type="text" placeholder="Иванович"></td>
+						  			<td></td>
+						  		</tr>
+						  	</table>
+						  </div>
+						  <h3 class="add_proj_title"><label for="">5</label><span>Казначей проекта</span> <span class="accordion_arrow"></span></h3>
+						  <div>
+						  	<table class="personal_data validateForm">
+						  		<tr>
+						  			<td><label for="" class="basic_top">Фамилия</label><input type="text" placeholder="Иванов"></td>
+						  			<td><label for="" class="basic_top">E-mail</label><input type="text" class="input_mail" placeholder="ivanovivan@mail.ru"></td>
+						  		</tr>
+						  		<tr>
+						  			<td><label for="">Имя</label><input type="text" placeholder="Иван"></td>
+						  			<td><label for="">Телефон</label><input type="text" class="inpPhone" placeholder="+79056432235"></td>
+						  		</tr>
+						  		<tr>
+						  			<td><label for="">Отчество	</label><input type="text" placeholder="Иванович"></td>
+						  			<td></td>
+						  		</tr>
+						  	</table>
+						  </div>
+						  
+						  <h3 class="add_proj_title"><label for="">6</label><span>Финансирование</span><span class="accordion_arrow"></span></h3>
+						  <div>
+							<table class="funding">
+						  		<tr>
+						  			<td>
+						  				<label for="" class="basic_top">Общий бюджет проекта</label>
+						  				<input type="text" placeholder=""><span class="funding-text">руб.</span>
+						  				<span class="clear"></span>
+						  				<ul class="funding_list">
+						  					<li>До 3 млн. руб. для проектов в городе</li>
+						  					<li>до 2х млн. руб. для сельских проектов</li>
+						  				</ul>
+						  			</td>
+						  			<td>
+						  				<label for="" class="basic_top">Доля софинансирования  от населения</label>
+						  				<input type="text" placeholder=""><span class="funding-text">руб.</span>
+						  				<span class="clear"></span>
+						  				<ul class="funding_list">
+						  					<li>Минимум:</li>
+						  					<li>8% для городских проектов</li>
+						  					<li>5% для сельских проектов</li>
+						  				</ul>
+						  			</td>
+						  			<td>
+						  				<label for="" class="basic_top">Доля муниципального  образования</label>
+						  				<input type="text" placeholder=""><span class="funding-text">руб.</span>
+						  				<span class="clear"></span>
+						  			</td>
+						  			<td>
+						  				<label for="" class="basic_top">Доля юридических лиц  (спонсоров) </label>
+						  				<input type="text" placeholder=""><span class="funding-text">руб.</span>
+						  				<span class="clear"></span>
+						  				<ul class="funding_list">
+						  					<li>Минимум 10%</li>
+						  				</ul>
+						  			</td>
+						  			<td>
+						  				<label for="" class="basic_top">Доля из бюджета Тульской области</label>
+						  				<input type="text" placeholder=""><span class="funding-text">руб.</span>
+						  				<span class="clear"></span>
+						  			</td>
+						  		</tr>
+						  	</table>
+						  </div>
+						  <h3 class="add_proj_title"><label for="">7</label><span>Прикрепление файлов и контактная информация</span><span class="accordion_arrow"></span></h3>
+						  <div class="clearfix">
+								<div class="left_side left">
+									<div class="clearfix">
+						  				<form action="" id="upload_photo_form">
+						  					<div id="files" class="files clearfix"></div>
+						  					<!-- The fileinput-button span is used to style the file input field as button -->
+										    
+						  					<label class="add_file left fileinput-button">
+										        <!-- The file input field used as target for the file upload widget -->
+										        Прикрепить документы 
+										        <input style="display:none;" type="file" multiple>
+										    </label>
+						  					<label class="add_photo left fileinput-button">
+										        <!-- The file input field used as target for the file upload widget -->
+										        Добавить фото 
+										        <input id="fileupload" style="display:none;" type="file" name="files[]" multiple>
+										    </label>
+						  					<div class="clear"></div>
+					  					</form>
+			  						</div>
+				  				</div>
+				  				<div class="right_side right addAdres">
+				  					<label class="right_side_label" for="">Адреса электронной почты для информирования о заявке</label>
+				  					<span class="clear"></span>
+						  				<input type="text" placeholder=""><a href="#" class="funding-text button">Добавить адрес</a>
+						  				<span class="clear"></span>
+						  			<span class="add_adres-list_add">Добавленные:</span>
+						  			<ul class="add_adres-list">
+						  				<li>
+						  					<span class="add_adres-item_text">groupleader@gmail.com</span>
+						  					<span class="add_adres-item_close"></span>
+						  				</li>
+						  			</ul>
+						  			<span class="clear"></span>
+				  				</div>
+
+						  </div>
+						</div>
+						<a href="#" class="accordion_send">Отправить</a>
+						<div class="clear"></div>
+						
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!-- end middle -->
+		<!-- start footer -->
+		<div id="footer" class="slider_none">
+			<div class="wrap">
+				<ul class="footer_menu">
+					<li>
+						<h4 class="title_footer_list">Решение проблем</h4>
+						<ul class="footer_list">
+							<li>
+								<a href="#">Дороги ТО</a>
+							</li>
+							<li>
+								<a href="#">Народный бюджет</a>
+							</li>
+							<li>
+								<a href="#">Открытый муниципалите</a>
+							</li>
+							<li>
+								<a href="#">Экспертиза проектов НПА</a>
+							</li>
+							<li>
+								<a href="#">Открытый клуб</a>
+							</li>
+							<li>
+								<a href="#">Антикорупция</a>
+							</li>
+							<li>
+								<a href="#">Рейтинг медицинских учреждений</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<h4 class="title_footer_list">Сервисы</h4>
+						<ul class="footer_list">
+							<li>
+								<a href="#">Фонд Тульский кремль</a>
+							</li>
+							<li>
+								<a href="#">Вопрос ответ</a>
+							</li>
+							<li>
+								<a href="#">Народная карта</a>
+							</li>
+							<li>
+								<a href="#">Уполномоченный по правам человека</a>
+							</li>
+							<li>
+								<a href="#">Уполномоченный по правам ребенка</a>
+							</li>
+							<li>
+								<a href="#">Уполномоченный по правам предпринимателя</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<h4 class="title_footer_list">Информация и обсуждения</h4>
+						<ul class="footer_list">
+							<li>
+								<a href="#">Электронный ЗАГС</a>
+							</li>
+							<li>
+								<a href="#">Электронный врач</a>
+							</li>
+							<li>
+								<a href="#">Электронная прокуратура</a>
+							</li>
+							<li>
+								<a href="#">Электронный полицейский</a>
+							</li>
+							<li>
+								<a href="#">Паспорта чиновников с их налоговой декларацией</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<h4 class="title_footer_list">о портале</h4>
+						<ul class="footer_list">
+							<li>
+								<a href="#">Мнения</a>
+							</li>
+							<li>
+								<a href="#">Электронный врач</a>
+							</li>
+							<li>
+								<a href="#">Электронная прокуратура</a>
+							</li>
+							<li>
+								<a href="#">Электронный полицейский</a>
+							</li>
+							<li>
+								<a href="#">Паспорта чиновников с их налоговой декларацией</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<div class="copyright">© ГАУ ТО "Центр информационных технологий", 2013</div>
+				<div class="clear"></div>
+			</div>
+			<div class="footer_decor"></div>
+		</div>
+		<!-- end footer -->
+	</div>
+	<!-- end mainarea -->
+</body>
+</html>

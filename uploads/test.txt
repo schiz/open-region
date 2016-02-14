@@ -1,0 +1,4 @@
+<div class="image">
+<div class="remove"></div>
+<img src="img/img.jpg" alt="">
+</div>

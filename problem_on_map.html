@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <title>Проблемы на карте</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <link rel="stylesheet" type="text/css" href="css/chosen.css" />
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link href="css/jquery.lightbox-0.5.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery.lightbox-0.5.js"></script>
+	<script type="text/javascript" src="js/chosen.jquery.min.js"></script>	
+	<script src="http://api-maps.yandex.ru/2.0/?load=package.full&amp;lang=ru-RU" type="text/javascript"></script>
+
+	<script type="text/javascript" src="js/main.js"></script>
+</head>
+<body>
+	<!-- start mainarea -->
+	<div id="mainarea">
+		<!-- start header -->
+		<div id="header">
+			<div class="wrap">
+				<ul class="personal_account">
+					<li>
+						<a href="#">Личный кабинет</a>
+					</li>
+					<li>
+						<span class="personal_account_decor"></span>
+						<a href="#">Выход</a>
+					</li>
+				</ul>
+				<div class="clear"></div>
+				<a href="#" class="logo">
+					<h2 class="title_logo">Открытый регион 71</h2>
+					<h3 class="title_logo small">портал управления тульской областью</h3>
+				</a>	
+				<ul class="menu">
+					<li class="active">
+						<a href="#">О проекте</a>						
+					</li>
+					<li>
+						<a href="#">Решение проблем </a>
+					</li>
+					<li>						
+						<a href="#"><span class="menu_item_ico"></span>прими участие </a>
+					</li>
+					<li>						
+						<a href="#"><span class="menu_item_ico"></span>сервисы</a>
+					</li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+			<div class="shadow_slider"></div>
+		</div>
+		<!-- end header -->
+
+		<!-- start middle -->
+		<div id="middle" class="slider_none">
+			<div class="fixed_scroll_fix">	
+			<div class="fone_blue">
+				<div class="line">
+					<div class="wrap">
+						<ul class="menu_list tabsControl clearfix">
+							<li class="active">
+								<a href="">Решение проблем</a>
+								<span class="arrow"></span>
+							</li>
+							<li>
+								<a href="">дороги тульской области</a>
+								<span class="arrow"></span>
+							</li>
+							<li>
+								<a href="">открытое жкх</a>
+								<span class="arrow"></span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			</div>
+			<div class="small_menu_wrap">
+				<div class="wrap">
+					<ul class="small_menu">
+						<li>
+							<a href="#" class="small_menu_link">Сообщить о проблеме</a>
+						</li>
+						<li>
+							<a href="#" class="small_menu_link">Консультации</a>
+						</li>
+						<li class="active">
+							<a href="#" class="small_menu_link">Все проблемы</a>
+						</li>
+						<li>
+							<a href="#" class="small_menu_link">Проблемы на карте</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="wrap">					
+				<div class="small_menu_filter">
+					<h4 class="small_menu_title">Выбор района</h4>
+					<select size="1" class="my_select_box">
+						<option selected>Алексинский район </option>
+						<option>Арсеньевский район </option>
+						<option>Белевский район </option>
+						<option>Богородицкий район </option>
+						<option>Веневский район </option>
+						<option>Воловский район </option>
+						<option>Дубенский район </option>
+						<option>Ефремовский район </option>
+						<option>Заокский район </option>
+						<option>Каменский район </option>
+						<option>Кимовский район </option>
+						<option>Киреевский район </option>
+						<option>Куркинский район  </option>
+						<option>Алексинский район 1</option>
+					</select>
+					<a href="#" class="filter_reset">сбросить</a>
+					<a href="#" class="filter_hide hide">Показать фильтр</a>						
+					<div class="clear"></div>
+				</div>
+				<div class="filterWrap">
+					<h4 class="small_menu_title">Выбор категории </h4>
+					<div class="wrap_small_menu">
+						<ul class="small_menu_category">
+							<li>
+								<label class="category_title">
+									<input type="checkbox" class="categoty_input">
+									<span class="categoty_ico_wrap">
+										<span class="categoty_ico"></span>
+									</span>
+									<span class="category_title_text">СФЕРА ЖИЛИЩНО-КОММУНАЛЬНОГО ХОЗЯЙСТВА</span>
+									<span class="clear"></span>
+								</label>
+								<ul class="category_list">
+									<li>
+										<label class="categoty_text">
+											<input type="checkbox" class="categoty_input">
+											<span class="categoty_ico_wrap">
+												<span class="categoty_ico"></span>
+											</span>
+											<span class="categoty_text_wrap">Дворовая территория</span>
+											<span class="clear"></span>
+										</label>
+									</li>
+									<li>
+										<label class="categoty_text">
+											<input type="checkbox" class="categoty_input">
+											<span class="categoty_ico_wrap">
+												<span class="categoty_ico"></span>
+											</span>
+											<span class="categoty_text_wrap">Многоквартирный дом</span>
+											<span class="clear"></span>
+										</label>
+									</li>
+								</ul>
+							</li>
+							<li class="light_blue">
+								<label class="category_title">
+									<input type="checkbox" class="categoty_input">
+									<span class="categoty_ico_wrap">
+										<span class="categoty_ico"></span>
+									</span>
+									<span class="category_title_text">СФЕРА ЗЕМЕЛЬНЫХ ОТНОШЕНИЙ и сельского хозяйства</span>
+									<span class="clear"></span>
+								</label>
+								<ul class="category_list">
+									<li>
+										<label class="categoty_text">
+											<input type="checkbox" class="categoty_input">
+											<span class="categoty_ico_wrap">
+												<span class="categoty_ico"></span>
+											</span>
+											<span class="categoty_text_wrap">Земельные участки</span>
+											<span class="clear"></span>
+										</label>
+									</li>
+									<li>
+										<label class="categoty_text">
+											<input type="checkbox" class="categoty_input">
+											<span class="categoty_ico_wrap">
+												<span class="categoty_ico"></span>
+											</span>
+											<span class="categoty_text_wrap">Агропромышленный комплекс</span>
+											<span class="clear"></span>
+										</label>
+									</li>
+								</ul>
+							</li>
+							<li class="yellow">
+								<label class="category_title">
+									<input type="checkbox" class="categoty_input">
+									<span class="categoty_ico_wrap">
+										<span class="categoty_ico"></span>
+									</span>
+									<span class="category_title_text">СФЕРА ИНВЕСТИЦИОННОГО РАЗВИТИЯ</span>
+									<span class="clear"></span>
+								</label>
+								<ul class="category_list">
+									<li>
+										<label class="categoty_text">
+											<input type="checkbox" class="categoty_input">
+											<span class="categoty_ico_wrap">
+												<span class="categoty_ico"></span>
+											</span>
+											<span class="categoty_text_wrap">Промышленные предприятия</span>
+											<span class="clear"></span>
+										</label>
+									</li>
+								</ul>
+							</li>
+						</ul>
+						<ul class="small_menu_category">
+							<li class="dark_blue">
+								<label class="category_title">
+									<input type="checkbox" class="categoty_input">
+									<span class="categoty_ico_wrap">
+										<span class="categoty_ico"></span>
+									</span>
+									<span class="category_title_text">СФЕРА  ЗДРАВООХРАНЕНИЯ и образования</span>
+									<span class="clear"></span>
+								</label>
+								<ul class="category_list">
+									<li>
+										<label class="categoty_text">
+											<input type="checkbox" class="categoty_input">
+											<span class="categoty_ico_wrap">
+												<span class="categoty_ico"></span>
+											</span>
+											<span class="categoty_text_wrap">Учреждения здравоохранения</span>
+											<span class="clear"></span>
+										</label>
+									</li>
+									<li>
+										<label class="categoty_text">
+											<input type="checkbox" class="categoty_input">
+											<span class="categoty_ico_wrap">
+												<span class="categoty_ico"></span>
+											</span>
+											<span class="categoty_text_wrap">Учреждения образования</span>
+											<span class="clear"></span>
+										</label>
+									</li>
+								</ul>
+							</li>
+							<li class="red">
+								<label class="category_title">
+									<input type="checkbox" class="categoty_input">
+									<span class="categoty_ico_wrap">
+										<span class="categoty_ico"></span>
+									</span><span class="category_title_text">СФЕРА ТРАНСПОРТА И ДОРОЖНОГО ХОЗЯЙСТВА</span>
+									<span class="clear"></span>
+								</label>
+								<ul class="category_list">
+									<li>
+										<label class="categoty_text">
+											<input type="checkbox" class="categoty_input">
+											<span class="categoty_ico_wrap">
+												<span class="categoty_ico"></span>
+											</span>
+											<span class="categoty_text_wrap">Улично-дорожная сеть</span>
+											<span class="clear"></span>
+										</label>
+									</li>
+									<li>
+										<label class="categoty_text">
+											<input type="checkbox" class="categoty_input">
+											<span class="categoty_ico_wrap">
+												<span class="categoty_ico"></span>
+											</span>
+											<span class="categoty_text_wrap">Транспорт</span>
+											<span class="clear"></span>
+										</label>
+									</li>
+								</ul>
+							</li>
+							<li class="pink ">
+								<label class="category_title">
+									<input type="checkbox" class="categoty_input">
+									<span class="categoty_ico_wrap">
+										<span class="categoty_ico"></span>
+									</span>
+									<span class="category_title_text">СФЕРА ТОРГОВЛИ И ОБЩЕСТВЕННОГО ПИТАНИЯ</span>
+									<span class="clear"></span>
+								</label>
+								<ul class="category_list">
+									<li>
+										<label class="categoty_text">
+											<input type="checkbox" class="categoty_input">
+											<span class="categoty_ico_wrap">
+												<span class="categoty_ico"></span>
+											</span>
+											<span class="categoty_text_wrap">Объект торговли (нарушение правил торговли)</span>
+											<span class="clear"></span>
+										</label>
+									</li>
+								</ul>
+							</li>
+							
+						</ul>
+						<ul class="small_menu_category">
+							<li class="orange">
+								<label class="category_title">
+									<input type="checkbox" class="categoty_input">
+									<span class="categoty_ico_wrap">
+										<span class="categoty_ico"></span>
+									</span>
+									<span class="category_title_text">СФЕРА ТРУДА,  ЗАНЯТОСТИ и соц. Защиты</span>
+									<span class="clear"></span>
+								</label>
+								<ul class="category_list">
+									<li>
+										<label class="categoty_text">
+											<input type="checkbox" class="categoty_input">
+											<span class="categoty_ico_wrap">
+												<span class="categoty_ico"></span>
+											</span>
+											<span class="categoty_text_wrap">Органы занятости населения</span>
+											<span class="clear"></span>
+										</label>
+									</li>
+									<li>
+										<label class="categoty_text">
+											<input type="checkbox" class="categoty_input">
+											<span class="categoty_ico_wrap">
+												<span class="categoty_ico"></span>
+											</span>
+											<span class="categoty_text_wrap">Учреждения социальной сферы</span>
+											<span class="clear"></span>
+										</label>
+									</li>
+								</ul>
+							</li>
+							<li class="purple">
+								<label class="category_title">
+									<input type="checkbox" class="categoty_input">
+									<span class="categoty_ico_wrap">
+										<span class="categoty_ico"></span>
+									</span>
+									<span class="category_title_text">СФЕРА  КУЛЬТУРЫ  И  ИСКУССТВА</span>
+									<span class="clear"></span>
+								</label>
+								<ul class="category_list">
+									<li>
+										<label class="categoty_text">
+											<input type="checkbox" class="categoty_input">
+											<span class="categoty_ico_wrap">
+												<span class="categoty_ico"></span>
+											</span>
+											<span class="categoty_text_wrap">Учреждения культуры (музеи, библиотеки, театры, филармония, клубы</span>
+											<span class="clear"></span>
+										</label>
+									</li>
+								</ul>
+							</li>						
+							<li class="green">
+								<label class="category_title">
+									<input type="checkbox" class="categoty_input">
+									<span class="categoty_ico_wrap">
+										<span class="categoty_ico"></span>
+									</span>
+									<span class="category_title_text">СФЕРА ЭКОЛОГИИ</span>
+									<span class="clear"></span>
+								</label>
+								<ul class="category_list">
+									<li>
+										<label class="categoty_text">
+											<input type="checkbox" class="categoty_input">
+											<span class="categoty_ico_wrap">
+												<span class="categoty_ico"></span>
+											</span>
+											<span class="categoty_text_wrap">Полигон твердых бытовых отходов</span>
+											<span class="clear"></span>
+										</label>
+									</li>
+									<li>
+										<label class="categoty_text">
+											<input type="checkbox" class="categoty_input">
+											<span class="categoty_ico_wrap">
+												<span class="categoty_ico"></span>
+											</span>
+											<span class="categoty_text_wrap">Водный объект</span>
+											<span class="clear"></span>
+										</label>
+									</li>
+									<li>
+										<label class="categoty_text">
+											<input type="checkbox" class="categoty_input">
+											<span class="categoty_ico_wrap">
+												<span class="categoty_ico"></span>
+											</span>
+											<span class="categoty_text_wrap">Охотничьи угодья</span>
+											<span class="clear"></span>
+										</label>
+									</li>
+									<li>
+										<label class="categoty_text">
+											<input type="checkbox" class="categoty_input">
+											<span class="categoty_ico_wrap">
+												<span class="categoty_ico"></span>
+											</span>
+											<span class="categoty_text_wrap">Лес</span>
+											<span class="clear"></span>
+										</label>
+									</li>
+									<li>
+										<label class="categoty_text">
+											<input type="checkbox" class="categoty_input">
+											<span class="categoty_ico_wrap">
+												<span class="categoty_ico"></span>
+											</span>
+											<span class="categoty_text_wrap">Транспорт</span>
+											<span class="clear"></span>
+										</label>
+									</li>
+								</ul>
+							</li>						
+						</ul>
+						<ul class="small_menu_category">						
+							<li class="lilac">
+								<label class="category_title">
+									<input type="checkbox" class="categoty_input">
+									<span class="categoty_ico_wrap">
+										<span class="categoty_ico"></span>
+									</span>
+									<span class="category_title_text">СФЕРА ЭНЕРГЕТИКИ И ГАЗОСНАБЖЕНИЯ</span>
+									<span class="clear"></span>
+								</label>
+								<ul class="category_list">
+									<li>
+										<label class="categoty_text">
+											<input type="checkbox" class="categoty_input">
+											<span class="categoty_ico_wrap">
+												<span class="categoty_ico"></span>
+											</span>
+											<span class="categoty_text_wrap">Линии электропередач, газопроводы</span>
+											<span class="clear"></span>
+										</label>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- start map -->
+			<div class="map">
+				<div class="wrap">
+					<h2 class="title_info">Проблемы на карте</h2>
+				</div>
+				<div class="wrap_map">
+					<div id="map" style="width:100%; height:500px"></div>
+				</div>
+				<div class="map_menu">
+					<div class="wrap">
+						<ul class="map_menu_list">
+							<li class="active">
+								<a href="">Решение проблем</a>
+							</li>
+							<li>
+								<a href="">дороги тульской области</a>
+							</li>
+							<li>
+								<a href="">открытое жкх</a>
+							</li>
+							<li>
+								<a href="">народный бюджет</a>
+							</li>							
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- end map -->
+
+			<!-- start project -->
+			<div class="project">
+				<div class="project_slider_block">
+					<div class="wrap">
+						<div class="tabsWrap">
+							<h2 class="title_info">Проекты открытого региона 71</h2>
+							<ul class="news_control tabsControl">
+								<li class="active">
+									<a href="#">Сервисы</a>
+								</li>
+								<li>
+									<a href="#">Проекты</a>
+								</li>
+							</ul>
+							<div class="clear"></div>
+							<ul class="news_body tabsBody">
+								<li class="newsSlider">
+									<a href="#" class="arrow next buttonArrow rightBtn"></a>
+									<a href="#" class="arrow prev buttonArrow leftBtn"></a>
+							
+									<div class="project_wrap">									
+										<ul class="project_list_wrap sliderList">
+											<li>
+												<ul class="project_list">
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">1Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">2Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>								
+												</ul>
+											</li>
+											<li>
+												<ul class="project_list">
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">3Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">4Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>								
+												</ul>
+											</li>
+											<li>
+												<ul class="project_list">
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">5Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">6Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>								
+												</ul>
+											</li>
+											<li>
+												<ul class="project_list">
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">7Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">8Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>								
+												</ul>
+											</li>
+											<li>
+												<ul class="project_list">
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">9Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">10Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>								
+												</ul>
+											</li>
+											<li>
+												<ul class="project_list">
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">11Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">12Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>								
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li class="newsSlider">
+									<a href="#" class="arrow next buttonArrow leftBtn"></a>
+									<a href="#" class="arrow prev buttonArrow rightBtn"></a>
+							
+									<div class="project_wrap">									
+										<ul class="project_list_wrap sliderList">
+											<li>
+												<ul class="project_list">
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>								
+												</ul>
+											</li>
+											<li>
+												<ul class="project_list">
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">19Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">20Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>								
+												</ul>
+											</li>
+											<li>
+												<ul class="project_list">
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">17Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">18Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>								
+												</ul>
+											</li>
+											<li>
+												<ul class="project_list">
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">15Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">16Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>								
+												</ul>
+											</li>
+											<li>
+												<ul class="project_list">
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">14Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">13Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>								
+												</ul>
+											</li>
+											<li>
+												<ul class="project_list">
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">12Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">11Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>								
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>				
+			</div>
+			<!-- end project -->
+
+
+
+		</div>
+		<!-- end middle -->
+		<!-- start footer -->
+		<div id="footer" class="slider_none">
+			<div class="wrap">
+				<ul class="footer_menu">
+					<li>
+						<h4 class="title_footer_list">Решение проблем</h4>
+						<ul class="footer_list">
+							<li>
+								<a href="#">Дороги ТО</a>
+							</li>
+							<li>
+								<a href="#">Народный бюджет</a>
+							</li>
+							<li>
+								<a href="#">Открытый муниципалите</a>
+							</li>
+							<li>
+								<a href="#">Экспертиза проектов НПА</a>
+							</li>
+							<li>
+								<a href="#">Открытый клуб</a>
+							</li>
+							<li>
+								<a href="#">Антикорупция</a>
+							</li>
+							<li>
+								<a href="#">Рейтинг медицинских учреждений</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<h4 class="title_footer_list">Сервисы</h4>
+						<ul class="footer_list">
+							<li>
+								<a href="#">Фонд Тульский кремль</a>
+							</li>
+							<li>
+								<a href="#">Вопрос ответ</a>
+							</li>
+							<li>
+								<a href="#">Народная карта</a>
+							</li>
+							<li>
+								<a href="#">Уполномоченный по правам человека</a>
+							</li>
+							<li>
+								<a href="#">Уполномоченный по правам ребенка</a>
+							</li>
+							<li>
+								<a href="#">Уполномоченный по правам предпринимателя</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<h4 class="title_footer_list">Информация и обсуждения</h4>
+						<ul class="footer_list">
+							<li>
+								<a href="#">Электронный ЗАГС</a>
+							</li>
+							<li>
+								<a href="#">Электронный врач</a>
+							</li>
+							<li>
+								<a href="#">Электронная прокуратура</a>
+							</li>
+							<li>
+								<a href="#">Электронный полицейский</a>
+							</li>
+							<li>
+								<a href="#">Паспорта чиновников с их налоговой декларацией</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<h4 class="title_footer_list">о портале</h4>
+						<ul class="footer_list">
+							<li>
+								<a href="#">Мнения</a>
+							</li>
+							<li>
+								<a href="#">Электронный врач</a>
+							</li>
+							<li>
+								<a href="#">Электронная прокуратура</a>
+							</li>
+							<li>
+								<a href="#">Электронный полицейский</a>
+							</li>
+							<li>
+								<a href="#">Паспорта чиновников с их налоговой декларацией</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<div class="copyright">© ГАУ ТО "Центр информационных технологий", 2013</div>
+				<div class="clear"></div>
+			</div>
+			<div class="footer_decor"></div>
+		</div>
+		<!-- end footer -->
+	</div>
+	<!-- end mainarea -->
+</body>
+</html>

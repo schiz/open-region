@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <title>Все проблемы</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <link rel="stylesheet" type="text/css" href="css/chosen.css" />
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link href="css/jquery.lightbox-0.5.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+
+ 
+
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+
+	
+	<script type="text/javascript" src="js/history.js"></script>
+
+	<script type="text/javascript" src="js/chosen.jquery.min.js"></script>	
+	<script type="text/javascript" src="js/jquery.lightbox-0.5.js"></script>
+	<script type="text/javascript" src="js/underscore-min.js"></script>
+	<script type="text/template" id="filter_tpl">
+	    <li class="<%= color %>">
+	    	<label class="category_title">
+	    		<input type="checkbox" class="categoty_input">
+	    		<span class="categoty_ico_wrap">
+	    			<span class="categoty_ico"></span>
+	    		</span>
+	    		<span class="category_title_text"><%= name %></span>
+	    		<span class="clear"></span>
+	    	</label>
+	    	<ul class="category_list">
+	    		<% _.each(items, function(item, idx){ %>
+	                <li>
+		                <label class="categoty_text">
+		                	<input type="checkbox" class="categoty_input" />
+		                	<span class="categoty_ico_wrap">
+								<span class="categoty_ico"></span>
+							</span>
+							<span class="categoty_text_wrap"><%= item.title %></span>
+							<span class="clear"></span>
+		                </label>	                    
+	                </li>
+				<% }) %>
+	    	</ul>
+	    </li>
+	</script>
+
+	<script type="text/javascript" src="js/main.js"></script>
+</head>
+<body>
+	<!-- start mainarea -->
+	<div id="mainarea">
+		<!-- start header -->
+		<div id="header">
+			<div class="wrap">
+				<ul class="personal_account">
+					<li>
+						<a href="#">Личный кабинет</a>
+					</li>
+					<li>
+						<span class="personal_account_decor"></span>
+						<a href="#">Выход</a>
+					</li>
+				</ul>
+				<div class="clear"></div>
+				<a href="#" class="logo">
+					<h2 class="title_logo">Открытый регион 71</h2>
+					<h3 class="title_logo small">портал управления тульской областью</h3>
+				</a>	
+				<ul class="menu">
+					<li class="active">
+						<a href="#">О проекте</a>						
+					</li>
+					<li>
+						<a href="#">Решение проблем </a>
+					</li>
+					<li>						
+						<a href="#"><span class="menu_item_ico"></span>прими участие </a>
+					</li>
+					<li>						
+						<a href="#"><span class="menu_item_ico"></span>сервисы</a>
+					</li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+			<div class="shadow_slider"></div>
+		</div>
+		<!-- end header -->
+
+		<!-- start middle -->
+		<div id="middle" class="slider_none">
+			<div class="fixed_scroll_fix">	
+				<div class="fone_blue">
+					<div class="line">
+						<div class="wrap">
+							<ul class="menu_list clearfix">
+								<li class="active">
+									<a href="#">Реши проблему</a>
+									<span class="arrow"></span>
+								</li>
+								<li>
+									<a href="#bx_1914200112_236">Дороги Тульской области</a>
+									<span class="arrow"></span>
+								</li>
+								<li>
+									<a href="#bx_1914200112_237">Открытое ЖКХ</a>
+									<span class="arrow"></span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="small_menu_wrap">
+				<div class="wrap">
+					<ul class="small_menu">
+						<li>
+							<a href="#" class="small_menu_link">Сообщить о проблеме</a>
+						</li>
+						<li>
+							<a href="#" class="small_menu_link">Консультации</a>
+						</li>
+						<li class="active">
+							<a href="#" class="small_menu_link">Все проблемы</a>
+						</li>
+						<li>
+							<a href="#" class="small_menu_link">Проблемы на карте</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="wrap">					
+				<div class="small_menu_filter">
+					<h4 class="small_menu_title">Выбор района</h4>
+					<select size="1" class="my_select_box filterAjax">
+						<option selected value="alexinsky">Алексинский район </option>
+						<option value="arseniyevsky">Арсеньевский район </option>
+						<option value="belevsky">Белевский район </option>
+						<option value="virgin">Богородицкий район </option>
+						<option value="belevsky">Веневский район </option>
+						<option value="venevsky">Воловский район </option>
+						<option value="dubno">Дубенский район </option>
+						<option value="efremov">Ефремовский район </option>
+						<option value="zaoksky">Заокский район </option>
+						<option value="kamensky">Каменский район </option>
+						<option value="kimovsk">Кимовский район </option>
+						<option value="kireyevsky">Киреевский район </option>
+						<option value="kurkino">Куркинский район  </option>
+						<option value="arseniyevsky1">Алексинский район 1</option>
+					</select>
+					<a href="#" class="filter_reset">сбросить</a>
+					<a href="#" class="filter_hide hide">Показать фильтр</a>						
+					<div class="clear"></div>
+				</div>
+				<div class="filterWrap">
+					<h4 class="small_menu_title">Выбор категории </h4>
+					<div class="wrap_small_menu">
+						<ul class="small_menu_category">
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- start appeals -->
+			<div class="appeals all_problem nthChild">
+				<div class="wrap">
+					<h2 class="title_info">Все обращения</h2>
+					<ul class="appeals_list nthChildList">
+						<li>
+							<div class="appeals_wrap">
+								<div class="appeals_info">
+									<h4 class="appeals_title">Розничная продажа алкогольной и табачной продукции несоврешеннолетним</h4>
+									<p class="appeals_text">
+										К микрорынку, расположенному в Киреевске на ул. Л. Толстого, не возможно подойти - сплошной гололед. Администрации рынка и города ничего не делают, а люди калечатся... Ю.А. Успенский, почетный гражданин МО Киреевский район
+									</p>
+									<div class="appeals_data">
+										<span class="appeals_data_ico"></span>
+										25.02.2014
+									</div>
+									<div class="appeals_adress">
+										<a href="#">
+											<span class="appeals_adress_ico"></span>
+											г.Тула, ул.Первомайская, д.8 корп. "А"
+										</a>
+									</div>
+									<div class="appeals_fio">
+										<span class="appeals_fio_ico"></span>
+										<a href="#">Сергей Васильевич Соседов</a>
+									</div>
+								</div>
+								<div class="appeals_img_wrap lightBoxWrap">
+									<ul class="appeals_img_list">
+										<li>
+											<a href="img/1-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+												<span class="appeals_img_number">5 фото</span>
+											</a>
+										</li>
+										<li>
+											<a href="img/2-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+											</a>
+										</li>
+										<li>
+											<a href="img/3-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+											</a>
+										</li>
+										<li>
+											<a href="img/5-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+											</a>
+										</li>
+										<li>
+											<a href="img/2-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+											</a>
+										</li>
+									</ul>
+									<a href="#" class="appeals_link">посмотреть Решение</a>
+								</div>
+							</div>
+							<div class="appeals_hint">
+								<h5 class="appeals_hint_title">готовится ответ</h5>
+								<p class="appeals_hint_text">
+									Ответственный за подготовку ответа:<br/> 
+									<a href="#">администрация муниципального образования Алексинский район</a> 
+								</p>
+								<span class="appeals_hint_arrow"></span>
+							</div>
+						</li>
+						<li>
+							<div class="appeals_wrap">
+								<div class="appeals_info">
+									<h4 class="appeals_title">Розничная продажа алкогольной и табачной продукции несоврешеннолетним</h4>
+									<p class="appeals_text">
+										К микрорынку, расположенному в Киреевске на ул. Л. Толстого, не возможно подойти - сплошной гололед. Администрации рынка и города ничего не делают, а люди калечатся... Ю.А. Успенский, почетный гражданин МО Киреевский район
+									</p>
+									<div class="appeals_data">
+										<span class="appeals_data_ico"></span>
+										25.02.2014
+									</div>
+									<div class="appeals_adress">
+										<a href="#">
+											<span class="appeals_adress_ico"></span>
+											г.Тула, ул.Первомайская, д.8 корп. "А"
+										</a>
+									</div>
+									<div class="appeals_fio">
+										<span class="appeals_fio_ico"></span>
+										<a href="#">Сергей Васильевич Соседов</a>
+									</div>
+								</div>
+								<div class="appeals_img_wrap lightBoxWrap">
+									<ul class="appeals_img_list">
+										<li>
+											<a href="img/6-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+												<span class="appeals_img_number">5 фото</span>
+											</a>
+										</li>
+										<li>
+											<a href="img/7-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+											</a>
+										</li>
+										<li>
+											<a href="img/8-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+											</a>
+										</li>
+										<li>
+											<a href="img/9-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+											</a>
+										</li>
+										<li>
+											<a href="img/10-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+											</a>
+										</li>
+									</ul>
+									<a href="#" class="appeals_link">посмотреть Решение</a>
+								</div>
+							</div>
+							<div class="appeals_hint">
+								<h5 class="appeals_hint_title">готовится ответ</h5>
+								<p class="appeals_hint_text">
+									Ответственный за подготовку ответа:<br/> 
+									<a href="#">администрация муниципального образования Алексинский район</a> 
+								</p>
+								<span class="appeals_hint_arrow"></span>
+							</div>
+						</li>
+						<li>
+							<div class="appeals_wrap">
+								<div class="appeals_info">
+									<h4 class="appeals_title">Розничная продажа алкогольной и табачной продукции несоврешеннолетним</h4>
+									<p class="appeals_text">
+										К микрорынку, расположенному в Киреевске на ул. Л. Толстого, не возможно подойти - сплошной гололед. Администрации рынка и города ничего не делают, а люди калечатся... Ю.А. Успенский, почетный гражданин МО Киреевский район
+									</p>
+									<div class="appeals_data">
+										<span class="appeals_data_ico"></span>
+										25.02.2014
+									</div>
+									<div class="appeals_adress">
+										<a href="#">
+											<span class="appeals_adress_ico"></span>
+											г.Тула, ул.Первомайская, д.8 корп. "А"
+										</a>
+									</div>
+									<div class="appeals_fio">
+										<span class="appeals_fio_ico"></span>
+										<a href="#">Сергей Васильевич Соседов</a>
+									</div>
+								</div>
+								<div class="appeals_img_wrap lightBoxWrap">
+									<ul class="appeals_img_list">
+										<li>
+											<a href="img/1-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+												<span class="appeals_img_number">5 фото</span>
+											</a>
+										</li>
+										<li>
+											<a href="img/2-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+											</a>
+										</li>
+										<li>
+											<a href="img/3-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+											</a>
+										</li>
+										<li>
+											<a href="img/5-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+											</a>
+										</li>
+										<li>
+											<a href="img/2-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+											</a>
+										</li>
+									</ul>
+									<a href="#" class="appeals_link">посмотреть Решение</a>
+								</div>
+							</div>
+							<div class="appeals_hint">
+								<h5 class="appeals_hint_title">готовится ответ</h5>
+								<p class="appeals_hint_text">
+									Ответственный за подготовку ответа:<br/> 
+									<a href="#">администрация муниципального образования Алексинский район</a> 
+								</p>
+								<span class="appeals_hint_arrow"></span>
+							</div>
+						</li>
+						<li>
+							<div class="appeals_wrap">
+								<div class="appeals_info">
+									<h4 class="appeals_title">Розничная продажа алкогольной и табачной продукции несоврешеннолетним</h4>
+									<p class="appeals_text">
+										К микрорынку, расположенному в Киреевске на ул. Л. Толстого, не возможно подойти - сплошной гололед. Администрации рынка и города ничего не делают, а люди калечатся... Ю.А. Успенский, почетный гражданин МО Киреевский район
+									</p>
+									<div class="appeals_data">
+										<span class="appeals_data_ico"></span>
+										25.02.2014
+									</div>
+									<div class="appeals_adress">
+										<a href="#">
+											<span class="appeals_adress_ico"></span>
+											г.Тула, ул.Первомайская, д.8 корп. "А"
+										</a>
+									</div>
+									<div class="appeals_fio">
+										<span class="appeals_fio_ico"></span>
+										<a href="#">Сергей Васильевич Соседов</a>
+									</div>
+								</div>
+								<div class="appeals_img_wrap lightBoxWrap">
+									<ul class="appeals_img_list">
+										<li>
+											<a href="img/6-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+												<span class="appeals_img_number">5 фото</span>
+											</a>
+										</li>
+										<li>
+											<a href="img/7-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+											</a>
+										</li>
+										<li>
+											<a href="img/8-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+											</a>
+										</li>
+										<li>
+											<a href="img/9-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+											</a>
+										</li>
+										<li>
+											<a href="img/10-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+											</a>
+										</li>
+									</ul>
+									<a href="#" class="appeals_link">посмотреть Решение</a>
+								</div>
+							</div>
+							<div class="appeals_hint">
+								<h5 class="appeals_hint_title">готовится ответ</h5>
+								<p class="appeals_hint_text">
+									Ответственный за подготовку ответа:<br/> 
+									<a href="#">администрация муниципального образования Алексинский район</a> 
+								</p>
+								<span class="appeals_hint_arrow"></span>
+							</div>
+						</li>
+						<li>
+							<div class="appeals_wrap">
+								<div class="appeals_info">
+									<h4 class="appeals_title">Розничная продажа алкогольной и табачной продукции несоврешеннолетним</h4>
+									<p class="appeals_text">
+										К микрорынку, расположенному в Киреевске на ул. Л. Толстого, не возможно подойти - сплошной гололед. Администрации рынка и города ничего не делают, а люди калечатся... Ю.А. Успенский, почетный гражданин МО Киреевский район
+									</p>
+									<div class="appeals_data">
+										<span class="appeals_data_ico"></span>
+										25.02.2014
+									</div>
+									<div class="appeals_adress">
+										<a href="#">
+											<span class="appeals_adress_ico"></span>
+											г.Тула, ул.Первомайская, д.8 корп. "А"
+										</a>
+									</div>
+									<div class="appeals_fio">
+										<span class="appeals_fio_ico"></span>
+										<a href="#">Сергей Васильевич Соседов</a>
+									</div>
+								</div>
+								<div class="appeals_img_wrap lightBoxWrap">
+									<ul class="appeals_img_list">
+										<li>
+											<a href="img/1-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+												<span class="appeals_img_number">5 фото</span>
+											</a>
+										</li>
+										<li>
+											<a href="img/2-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+											</a>
+										</li>
+										<li>
+											<a href="img/3-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+											</a>
+										</li>
+										<li>
+											<a href="img/5-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+											</a>
+										</li>
+										<li>
+											<a href="img/2-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+											</a>
+										</li>
+									</ul>
+									<a href="#" class="appeals_link">посмотреть Решение</a>
+								</div>
+							</div>
+							<div class="appeals_hint">
+								<h5 class="appeals_hint_title">готовится ответ</h5>
+								<p class="appeals_hint_text">
+									Ответственный за подготовку ответа:<br/> 
+									<a href="#">администрация муниципального образования Алексинский район</a> 
+								</p>
+								<span class="appeals_hint_arrow"></span>
+							</div>
+						</li>
+						<li>
+							<div class="appeals_wrap">
+								<div class="appeals_info">
+									<h4 class="appeals_title">Розничная продажа алкогольной и табачной продукции несоврешеннолетним</h4>
+									<p class="appeals_text">
+										К микрорынку, расположенному в Киреевске на ул. Л. Толстого, не возможно подойти - сплошной гололед. Администрации рынка и города ничего не делают, а люди калечатся... Ю.А. Успенский, почетный гражданин МО Киреевский район
+									</p>
+									<div class="appeals_data">
+										<span class="appeals_data_ico"></span>
+										25.02.2014
+									</div>
+									<div class="appeals_adress">
+										<a href="#">
+											<span class="appeals_adress_ico"></span>
+											г.Тула, ул.Первомайская, д.8 корп. "А"
+										</a>
+									</div>
+									<div class="appeals_fio">
+										<span class="appeals_fio_ico"></span>
+										<a href="#">Сергей Васильевич Соседов</a>
+									</div>
+								</div>
+								<div class="appeals_img_wrap lightBoxWrap">
+									<ul class="appeals_img_list">
+										<li>
+											<a href="img/6-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+												<span class="appeals_img_number">5 фото</span>
+											</a>
+										</li>
+										<li>
+											<a href="img/7-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+											</a>
+										</li>
+										<li>
+											<a href="img/8-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+											</a>
+										</li>
+										<li>
+											<a href="img/9-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+											</a>
+										</li>
+										<li>
+											<a href="img/10-big.jpg" class="lightBox">
+												<img src="img/all_problem-img.jpg" class="appeals_img" width="160" height="125" alt="" />
+											</a>
+										</li>
+									</ul>
+									<a href="#" class="appeals_link">посмотреть Решение</a>
+								</div>
+							</div>
+							<div class="appeals_hint">
+								<h5 class="appeals_hint_title">готовится ответ</h5>
+								<p class="appeals_hint_text">
+									Ответственный за подготовку ответа:<br/> 
+									<a href="#">администрация муниципального образования Алексинский район</a> 
+								</p>
+								<span class="appeals_hint_arrow"></span>
+							</div>
+						</li>
+					</ul>
+					<div class="pager">
+						<a href="#" class="pager_prev_btn">Предыдущая</a>
+						<ul class="pager_buttons">
+							<li class="active">
+								<a href="#" class="pager_btn">1</a>
+							</li>
+							<li>
+								<a href="#" class="pager_btn">2</a>
+							</li>
+							<li>
+								<a href="#" class="pager_btn">3</a>
+							</li>
+						</ul>
+						<a href="#" class="pager_next_btn">Следущая</a>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<!-- end appeals -->
+
+			<!-- start project -->
+			<div class="project">
+				<div class="project_slider_block">
+					<div class="wrap">
+						<div class="tabsWrap">
+							<h2 class="title_info">Проекты открытого региона 71</h2>
+							<ul class="news_control tabsControl">
+								<li class="active">
+									<a href="#">Сервисы</a>
+								</li>
+								<li>
+									<a href="#">Проекты</a>
+								</li>
+							</ul>
+							<div class="clear"></div>
+							<ul class="news_body tabsBody">
+								<li class="newsSlider">
+									<a href="#" class="arrow next buttonArrow rightBtn"></a>
+									<a href="#" class="arrow prev buttonArrow leftBtn"></a>
+							
+									<div class="project_wrap">									
+										<ul class="project_list_wrap sliderList">
+											<li>
+												<ul class="project_list">
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">1Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">2Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>								
+												</ul>
+											</li>
+											<li>
+												<ul class="project_list">
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">3Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">4Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>								
+												</ul>
+											</li>
+											<li>
+												<ul class="project_list">
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">5Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">6Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>								
+												</ul>
+											</li>
+											<li>
+												<ul class="project_list">
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">7Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">8Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>								
+												</ul>
+											</li>
+											<li>
+												<ul class="project_list">
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">9Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">10Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>								
+												</ul>
+											</li>
+											<li>
+												<ul class="project_list">
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">11Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">12Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>								
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li class="newsSlider">
+									<a href="#" class="arrow next buttonArrow leftBtn"></a>
+									<a href="#" class="arrow prev buttonArrow rightBtn"></a>
+							
+									<div class="project_wrap">									
+										<ul class="project_list_wrap sliderList">
+											<li>
+												<ul class="project_list">
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>								
+												</ul>
+											</li>
+											<li>
+												<ul class="project_list">
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">19Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>
+													<li>
+														<img src="img/index-img1.jpg" class="project_img" width="280" height="173" alt="" />
+														<div class="project_text">
+															<p class="indent">20Народное правительство <br/> Тульской области</p>
+															<span class="arrow"></span>
+														</div>
+													</li>								
+												</ul>
+											</li>
+											
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>				
+			</div>
+			<!-- end project -->
+
+
+
+		</div>
+		<!-- end middle -->
+		<!-- start footer -->
+		<div id="footer" class="slider_none">
+			<div class="wrap">
+				<ul class="footer_menu">
+					<li>
+						<h4 class="title_footer_list">Решение проблем</h4>
+						<ul class="footer_list">
+							<li>
+								<a href="#">Дороги ТО</a>
+							</li>
+							<li>
+								<a href="#">Народный бюджет</a>
+							</li>
+							<li>
+								<a href="#">Открытый муниципалите</a>
+							</li>
+							<li>
+								<a href="#">Экспертиза проектов НПА</a>
+							</li>
+							<li>
+								<a href="#">Открытый клуб</a>
+							</li>
+							<li>
+								<a href="#">Антикорупция</a>
+							</li>
+							<li>
+								<a href="#">Рейтинг медицинских учреждений</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<h4 class="title_footer_list">Сервисы</h4>
+						<ul class="footer_list">
+							<li>
+								<a href="#">Фонд Тульский кремль</a>
+							</li>
+							<li>
+								<a href="#">Вопрос ответ</a>
+							</li>
+							<li>
+								<a href="#">Народная карта</a>
+							</li>
+							<li>
+								<a href="#">Уполномоченный по правам человека</a>
+							</li>
+							<li>
+								<a href="#">Уполномоченный по правам ребенка</a>
+							</li>
+							<li>
+								<a href="#">Уполномоченный по правам предпринимателя</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<h4 class="title_footer_list">Информация и обсуждения</h4>
+						<ul class="footer_list">
+							<li>
+								<a href="#">Электронный ЗАГС</a>
+							</li>
+							<li>
+								<a href="#">Электронный врач</a>
+							</li>
+							<li>
+								<a href="#">Электронная прокуратура</a>
+							</li>
+							<li>
+								<a href="#">Электронный полицейский</a>
+							</li>
+							<li>
+								<a href="#">Паспорта чиновников с их налоговой декларацией</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<h4 class="title_footer_list">о портале</h4>
+						<ul class="footer_list">
+							<li>
+								<a href="#">Мнения</a>
+							</li>
+							<li>
+								<a href="#">Электронный врач</a>
+							</li>
+							<li>
+								<a href="#">Электронная прокуратура</a>
+							</li>
+							<li>
+								<a href="#">Электронный полицейский</a>
+							</li>
+							<li>
+								<a href="#">Паспорта чиновников с их налоговой декларацией</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<div class="copyright">© ГАУ ТО "Центр информационных технологий", 2013</div>
+				<div class="clear"></div>
+			</div>
+			<div class="footer_decor"></div>
+		</div>
+		<!-- end footer -->
+	</div>
+	<!-- end mainarea -->
+</body>
+</html>
