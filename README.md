@@ -3,4 +3,4 @@
 * Front-end development of a website for government of Tula region, Russia
 * Stack: HTML5 / CSSЗ / JavaScript / jQuery
 
-![alt text](https://github.com/schiz/open-region/ishodnik.jpg "Calcium markup")
+![alt text](https://github.com/schiz/open-region/raw/master/ishodnik.jpg "Calcium markup")
